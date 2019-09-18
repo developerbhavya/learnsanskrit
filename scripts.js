@@ -17,8 +17,10 @@ data:{
 console.log(data);
 var rep=JSON.stringify(data.data.Pronounce);
 var eng=JSON.stringify(data.data.Eng);
-rep.replace("\t", " ");
-eng.replace("\t", " ");
+
+rep=rep.replace(/\\t/g, '');
+eng=eng.replace(/\\t/g, '');
+
 $("#sans").text(JSON.stringify(data.data.output[0]));
 $("#type").text(JSON.stringify(data.data.Type));
 $("#prnc").append("Pronounced as: "+(rep));
